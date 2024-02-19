@@ -91,7 +91,7 @@ router.get('/', async (req, res) => {
     const recentDailyPost = await db.collection('community').find({ type: 'daily' }).sort({ id: -1 }).limit(5).toArray();
     const recentToktokPost = await db.collection('community').find({ type: 'toktok' }).sort({ _id: -1 }).limit(5).toArray();
     // const recentExchange = await db.collection('exchange').find({}).sort({ _id: -1 }).limit(5).toArray();
-
+    res.header("Access-Control-Allow-Origin", "*")
     res.json({
       flag: true,
       message: '데이터 불러오기 성공(커뮤니티)',
@@ -102,6 +102,7 @@ router.get('/', async (req, res) => {
     });
   } catch (err) {
     console.error(err);
+    console.log(bestViewPost, recentDailyPost, recentToktokPost);
   }
 });
 
