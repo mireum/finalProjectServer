@@ -24,3 +24,10 @@ https://image.hmall.com/static/5/4/09/17/2117094504_0.jpg?RS=600x600&AR=0
   <div class="next-bg">
     <a href="/community/shop/feed?nextId=<%= posts[posts.length - 1]?._id %>">다음</a>
   </div>
+
+  <!-- write.ejs에서 삭제 -->
+   <% if (!post.like) { %>
+      0
+    <% } else { %>
+      <%= post.like.length %>
+    <% } %>
